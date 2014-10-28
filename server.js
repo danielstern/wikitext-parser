@@ -40,6 +40,22 @@ function getText() {
 
 	var mainBody = file.toString().replace(/\{\{(.*?)\}\}/g,'');;
 
+	var str = file.toString();
+	var links = [];
+	while(str.match(/\[\[(.*?)\]\]/)) {
+		links.push(str.match(/\[\[(.*?)\]\]/));
+		str = str.replace(/[\[\[]/,'')
+	}
+
+	var related = [];
+
+	links.forEach(function(link){
+		link.toString().split('|').forEach(function(sub){
+			related.push(sub.replace(/[\[]/g,'').replace(/[\]]/g,''));
+		})
+
+	})
+
 
 	// var noMarkup = file.toString().replace(/\[(.*?)\]/g,'');
 	// var mainTitles =
@@ -54,7 +70,8 @@ function getText() {
 	return {
 		// file:file,
 		// mainTitles:mainTitles,
-		mainBody:mainBody,
+		// mainBody:mainBody,
+		related:related
 		// subTitles:subTitles,
 		// noMarkup:noMarkup
 	};
