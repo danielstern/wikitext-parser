@@ -37,17 +37,25 @@ var request = require('request');
 
 function getText() {
 	var file = fs.readFileSync('example.wtxt');
-	var mainTitles = file.toString().split("'''").filter(function(elem,index){
-		return index % 2;
-	});
 
-	var subTitles = file.toString().split("''").filter(function(elem,index){
-		return index % 2;
-	});
+	var mainBody = file.toString().replace(/\{\{(.*?)\}\}/g,'');;
+
+
+	// var noMarkup = file.toString().replace(/\[(.*?)\]/g,'');
+	// var mainTitles =
+	// var mainTitles = file.toString().split("'''").filter(function(elem,index){
+		// return index % 2;
+	// });
+
+	// var subTitles = file.toString().split("''").filter(function(elem,index){
+		// return index % 2;
+	// });
 
 	return {
 		// file:file,
-		mainTitles:mainTitles,
-		subTitles:subTitles
+		// mainTitles:mainTitles,
+		mainBody:mainBody,
+		// subTitles:subTitles,
+		// noMarkup:noMarkup
 	};
 }
