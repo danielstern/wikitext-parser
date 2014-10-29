@@ -1,11 +1,11 @@
 {
-  "name": "simplest-heroku-app",
-  "version": "0.0.0",
-  "description": "An API to freely access the English language",
-  "main": "server.js",
+  "name": "wikitext-parser",
+  "version": "0.0.1",
+  "description": "A node module to parse wiki text into a more useful form",
+  "main": "parsewiki.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Benjamin Franklin",
+  "author": "daniel stern",
   "license": "Declaration of Independence"
 }
